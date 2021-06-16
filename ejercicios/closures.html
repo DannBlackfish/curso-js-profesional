@@ -1,0 +1,69 @@
+<html>
+    <body>
+        <a href="/ejercicios/">Go back</a>
+        <p><em>Abre la consola</em></p>
+        <script>
+            //Closures
+            //printColor
+
+            //IIFE expresion funcional que se le invoca indmediatamente
+            //pasamos una funcion de un entorno global lo pasamos a una función por lo que color no cruza al scope global
+            //Cuando tenemos la declaracion y la ejecucion color que esta afuera es un closure es la covninacion de un scope de una funcion y la funcion donde fue definida 
+            (function() {let color = 'green';
+
+            function printColor() {
+                console.log(color);
+            }
+
+            printColor();
+            })();
+            //printColor dentro de un life
+            //Funciones que regresan funciones
+            //el scope lo memorizo 
+            function makeColorPrinter(color) {
+                let colorMessage = `The color is ${color}`
+                return function () {
+                    console.log(colorMesage)
+                }
+            }
+
+            let greenColorPrinter = makeColorPrinter("green")
+            console.log(greenColorPrinter);
+
+            // Variables "privadas"
+            //No queremos que nadie tenga acceso al valor de la variable
+            //Esta funcion no es privada 
+            const counter = {
+                count: 3 
+            }
+            console.log(counter.count)
+
+            //Esta es la funcion privada
+            function makeCounter(n) {
+                let count = n
+                return {
+                    increase: function() {
+                        count = count + 1;
+                    },
+                    decrease: function() {
+                        count = count - 1;
+                    },
+                    getCount: function() {
+                        return count;
+                    },
+                };
+            }
+
+            let counter = makeCounter(7);
+
+            console.log('The count is:', counter.getCount());
+            counter.increase();
+            console.log('The count is:', counter.getCount());
+            counter.decrease();
+            counter.decrease();
+            counter.decrease();
+            counter.decrease();
+
+        </script>
+    </body>
+</html>
