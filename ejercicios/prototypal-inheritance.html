@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <tite>Prototypal inheritance</tite>
+    </head>
+
+    <body>
+        <a href="/ejercicios/">Go back</a>
+        <p><em>Abre la consola</em></p>
+
+        <script>
+        
+        function Hero (name) {
+            this.name = name
+            }
+
+        Hero.prototype.saludar = function() {
+            console.log(`New: ${this.name}`)
+        }
+
+        const zelda = new Hero("Zelda");
+        //propiedades de la intsancia
+        console.log('Name:', zelda.name)
+        //propiedades de la "clase"
+        console.log('Saludar:', zelda.saludar)
+        //propiedades heredaras ej: toString
+        console.log('toString:', zelda.toString)
+        //hasOwnProperty (de donde sale toString a esto?)
+        console.log('zelda.hasOwnProperty("name"):', zelda.hasOwnProperty("name"));
+        //inspecciones el prototipo de zelda
+        //__proto__ objeto donde cayeron todos las propiedades de Hero.prototype, es algo que puede variar es una implementacion que ponen los browsers
+        //inspeccionemos el prototipo de Hero
+        //inspecciones el prototipo del Object 
+
+        </script>
+    </body>
+</html>
